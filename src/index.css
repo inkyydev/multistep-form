@@ -1,0 +1,853 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #465578;
+}
+img {
+  max-width: 100%;
+}
+h2 {
+  font-size: 36px;
+  line-height: 1.4;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+h4 {
+  font-weight: 600;
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+#multistep_section {
+  min-height: 100vh;
+  padding: 24px 0 80px;
+  background-color: #fcfcfd;
+  background-image: url(./assets/background-img.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+#multistep_section .container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.logo-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.form-wrapper {
+  background: #fff;
+  box-shadow: 0 40px 80px rgba(54, 81, 144, 0.12);
+  border-radius: 40px;
+  display: flex;
+  align-items: stretch;
+}
+.form-wrapper__nav {
+  background: #e5f1ff;
+  border-radius: 40px 0 0 40px;
+  padding: 57px 42px;
+  padding-right: 20px;
+  flex-basis: 354px;
+  max-width: 354px;
+}
+.form-wrapper__multistep--form {
+  flex: 1;
+  padding: 35px 56px;
+  min-height: 670px;
+  position: relative;
+}
+.form-wrapper__multistep--form h2 {
+  margin-bottom: 25px;
+}
+.form-wrapper__nav span {
+  list-style: none;
+  font-size: 26px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+.form-wrapper__nav .nav-single.active span {
+  color: #6c63ff;
+}
+.nav-single {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav-wrapper > div {
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.nav-wrapper > div:last-of-type {
+  margin-bottom: 15px;
+}
+.form-wrapper__nav .nav-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.form-wrapper__nav .nav-single.active .nav-wrapper {
+  max-height: 300px;
+}
+.active-step {
+  color: #6c63ff;
+  position: relative;
+  padding-left: 23px;
+}
+.active-step::before {
+  content: "";
+  position: absolute;
+  background-image: url(./assets/arrow-right.svg);
+  width: 14px;
+  height: 12px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.form-content-wrapper {
+  height: 100%;
+  padding-bottom: 25px;
+}
+.form-wrapper__multistep--form form h3 {
+  margin-bottom: 25px;
+  max-width: 800px;
+}
+.form-wrapper__multistep--form form h4 {
+  margin-bottom: 20px;
+}
+.radio-buttons {
+  display: inline-flex;
+  flex-direction: column;
+}
+.radio-buttons input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+.radio-buttons span {
+  padding-left: 35px;
+  position: relative;
+  margin-bottom: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+.radio-buttons span::before {
+  content: "";
+  position: absolute;
+  border: 1px solid #465578;
+  width: 25px;
+  height: 25px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  background-size: 50% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.radio-buttons input:checked ~ span::before {
+  background-image: url(./assets/checkmark.svg);
+}
+.button-wrapper {
+  display: flex;
+  gap: 20px;
+}
+.btn-wrapper-form a,
+.form-wrapper__multistep--form button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-next {
+  padding: 15px 35px;
+  border: none;
+  background: linear-gradient(78deg, #7fc2ff 14.97%, #6c63ff 81.1%);
+  background-position: 100%;
+  background-size: 140% auto;
+  color: #fff;
+  min-width: 108px;
+}
+.btn-next:hover {
+  background-position: left center;
+}
+.btn-back {
+  border: 1px solid #acbee8;
+  background: transparent;
+  padding: 13px 36px;
+  min-height: 51px;
+}
+.btn-back:hover {
+  opacity: 0.6;
+}
+.list-wrapper h4 {
+  margin-bottom: 5px !important;
+}
+.list-wrapper li {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  margin-left: 10px;
+  list-style: none;
+  position: relative;
+}
+.list-wrapper li::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #465578;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.check-affordabiity {
+  background: #7fc2ff;
+  border: 1px solid #7fc2ff;
+  padding: 14px 30px;
+  color: #fff;
+}
+.check-affordabiity:hover {
+  background: transparent;
+  color: #7fc2ff;
+}
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  row-gap: 15px;
+}
+.d-flex-50 {
+  flex-basis: calc(50% - 10px);
+}
+.d-flex-100 {
+  flex-basis: calc(100%);
+}
+.d-flex-33 {
+  flex-basis: calc(33% - 13.3px);
+  flex-grow: 1;
+}
+.form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(./assets/select-arrow.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+.form-group select,
+.form-group input {
+  border: 1px solid #acbee8;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  padding-left: 17px;
+  font-size: 14px;
+  outline: none;
+  color: #465578;
+}
+.form-group input::placeholder {
+  color: #bbd3eb !important;
+}
+.form-group span {
+  font-size: 12px;
+  margin-bottom: 8px;
+  display: block;
+}
+.form-group-radio input {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  z-index: -1;
+}
+.form-group-radio > span {
+  width: 100%;
+}
+.form-group-radio label {
+  display: inline-flex;
+}
+.form-group-radio label span {
+  margin-right: 20px;
+  width: 170px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #acbee8;
+  border-radius: 5px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 17px;
+  cursor: pointer;
+}
+.form-group-radio input:checked ~ span {
+  background: linear-gradient(78deg, #7fc2ff 14.97%, #6c63ff 81.1%);
+  color: #fff;
+}
+.accept-decline-field {
+  margin-top: 30px;
+}
+.accept-decline-field h4 {
+  margin-bottom: 10px !important;
+}
+.accept-heading {
+  margin-top: 30px;
+}
+.exit-wrapper .list-wrapper {
+  margin: 20px 0;
+}
+.set-password-wrapper {
+  max-width: 655px;
+  position: relative;
+}
+.set-password-wrapper .form-group {
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+}
+.set-password-wrapper button {
+  flex-basis: 175px;
+  max-width: 175px;
+}
+.set-password-wrapper label {
+  width: 100%;
+  flex: 1;
+}
+.error-message {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  color: red;
+}
+.error-message-fields {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.password-requirements {
+  position: absolute;
+  bottom: -140px;
+  left: 0;
+}
+.password-requirements li {
+  font-size: 14px;
+}
+.roadmap-mobile {
+  display: none;
+}
+.add-person {
+  color: #6c63ff;
+  font-weight: 600;
+}
+.insurance-list-wrapper {
+  margin-bottom: 20px;
+}
+.insurance-list-single {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #acbee8;
+  padding-bottom: 10px;
+}
+.insurance-handle-person {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.insurance-handle-person button {
+  width: 120px;
+  height: 50px;
+  cursor: pointer;
+  border: 5px;
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+}
+.insurance-handle-person button:first-of-type {
+  background: #7fc2ff;
+  border-color: #7fc2ff;
+}
+.insurance-handle-person button:last-of-type {
+  background: #ff6161;
+  border-color: #ff6161;
+}
+.insurance-handle-person button:hover {
+  color: #465578;
+  background: transparent;
+}
+.health-form,
+.form-wrapper__multistep--form form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.btn-wrapper-form {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.insurance-details-radio h3 {
+  margin-top: 25px;
+}
+.proof-of-insurance p {
+  margin-bottom: 15px;
+}
+.add-document-wrapper {
+  margin-top: 25px;
+}
+.add-document-wrapper input {
+  position: absolute;
+  visibility: hidden;
+}
+.add-document-wrapper span {
+  color: #6c63ff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.attestation-wrapper span {
+  margin-bottom: 5px;
+}
+.attestation-wrapper h3 {
+  margin-bottom: 15px !important;
+}
+.table-form-all {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.table-form-all td {
+  padding: 10px 0;
+  border-bottom: 1px solid #acbee8;
+  min-width: 50%;
+  width: 50%;
+  font-size: 14px;
+}
+.table-form-all td:first-of-type {
+  font-weight: 600;
+}
+.table-form-all td:last-of-type {
+  text-align: right;
+}
+.off-wrapper-all {
+  width: 100%;
+  border: 1px solid #acbee8;
+  min-height: 347px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.off-wrapper-all h3 {
+  margin-bottom: 0;
+}
+.reimbursement-wrapper h3 {
+  max-width: 629px !important;
+}
+.reimbursement-wrapper ul {
+  padding-left: 20px;
+}
+.list-all li {
+  margin-bottom: 7px;
+}
+.list-all {
+  padding-left: 20px;
+  margin-top: 7px;
+}
+.payment-wrapper.radio-buttons span::before {
+  top: 0;
+  transform: none;
+}
+.payment-wrapper.radio-buttons span {
+  margin-bottom: 12px;
+}
+.payroll-terms {
+  margin-top: 30px;
+}
+.first-payment-date-wrapper h4 {
+  margin-top: 15px;
+}
+.first-payment-date-wrapper select {
+  max-width: 438px;
+  margin-top: 20px;
+}
+.payment-instructions-continued p {
+  max-width: 682px;
+  margin-top: 25px;
+}
+.payment-instructions-continued {
+  position: relative;
+}
+.heading-payment-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.heading-payment-wrapper h2 {
+  margin-bottom: 0 !important;
+}
+.bank-table td {
+  text-align: left !important;
+}
+.bank-table td span {
+  display: block;
+  color: #6c63ff;
+  font-weight: 400;
+}
+.check-example-wrapper {
+  background: #e5f1ff;
+  border-radius: 20px;
+  padding: 34px 30px;
+  margin-bottom: 25px;
+}
+.check-header {
+  text-align: right;
+}
+.check-header span {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+.check-header p {
+  font-weight: 600;
+  margin-top: 0;
+}
+.check-header .date-span {
+  margin-top: 7px;
+}
+.check-header .separator {
+  max-width: 249px;
+  background: #000000;
+  height: 1px;
+  margin-left: auto;
+  margin-top: 10px;
+}
+.paytoorder-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.check-recipient-wrapper {
+  flex: 1;
+}
+.paytoorder-wrapper {
+  margin: 20px 0 25px;
+}
+.premium-wrapper {
+  flex-basis: 138px;
+}
+.for-paymeny-wrapper p,
+.paytoorder-wrapper p {
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.paytoorder-wrapper p {
+  flex-basis: 105px;
+}
+.paytoorder-wrapper span {
+  font-size: 36px;
+  font-weight: 600;
+}
+.for-paymeny-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 25px;
+}
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 24px;
+  }
+  .heading-payment-wrapper,
+  .form-wrapper__multistep--form h2 {
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+  li,
+  .radio-buttons span,
+  p {
+    font-size: 14px;
+  }
+  #multistep_section {
+    padding: 20px 20px;
+  }
+  .form-wrapper__nav {
+    flex-basis: 250px;
+    max-width: 250px;
+    padding: 50px 25px;
+  }
+  .form-wrapper__nav span {
+    font-size: 18px;
+  }
+  .nav-wrapper > div {
+    font-size: 14px;
+  }
+  .form-wrapper__multistep--form {
+    padding: 35px 25px;
+  }
+  .btn-wrapper-form {
+    gap: 5px;
+  }
+  .button-wrapper {
+    gap: 5px;
+  }
+  .set-password-wrapper .form-group {
+    gap: 20px;
+  }
+  .set-password-wrapper button {
+    flex-basis: 145px;
+    max-width: 145px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .insurance-handle-person {
+    gap: 5px;
+  }
+  .insurance-handle-person button {
+    width: 90px;
+    height: 38px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  .insurance-text {
+    font-size: 14px;
+  }
+  .table-form-all td {
+    font-size: 12px;
+  }
+  .paytoorder-wrapper p {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 767px) {
+  p {
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  h3 {
+    line-height: 1.3;
+    font-size: 14px;
+  }
+  h4 {
+    font-size: 14px;
+  }
+  .form-content-wrapper {
+    padding-bottom: 30px;
+  }
+  #multistep_section {
+    padding: 20px 10px 40px;
+    background-size: 200% auto;
+    background-position: top center;
+  }
+  .logo-wrapper img {
+    width: 101px;
+  }
+  .logo-wrapper {
+    margin-bottom: 25px;
+  }
+  .form-wrapper__nav {
+    flex-basis: 100%;
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 15px;
+  }
+  .form-wrapper {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+  .roadmap-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .roadmap-right img {
+    transition: all 0.2s ease;
+  }
+  .form-wrapper__nav .nav-single__wrapper {
+    display: none;
+  }
+  .form-wrapper__nav.active .nav-single__wrapper {
+    display: block;
+    margin-top: 10px;
+  }
+  .roadmap-left {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .nav-wrapper > div {
+    margin-bottom: 8px;
+  }
+  .nav-wrapper div:first-of-type {
+    margin-top: 7px;
+  }
+  .nav-single {
+    margin-bottom: 5px;
+  }
+  .form-wrapper__nav span {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .form-wrapper__multistep--form {
+    padding: 25px 15px;
+    min-height: auto;
+  }
+  .heading-payment-wrapper,
+  .form-wrapper__multistep--form h2 {
+    margin-bottom: 15px;
+  }
+  .radio-buttons span {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .list-wrapper li {
+    font-size: 14px;
+  }
+  .button-wrapper {
+    flex-wrap: wrap;
+  }
+  .d-flex-33,
+  .d-flex-50 {
+    flex-basis: 100%;
+  }
+  .d-flex {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .form-group-radio label span {
+    height: 45px;
+    width: 125px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  .set-password-wrapper .form-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .set-password-wrapper button {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  .error-message {
+    font-size: 14px;
+    bottom: auto;
+    position: relative;
+  }
+  .password-requirements {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    padding-left: 20px;
+  }
+  .form-group select,
+  .form-group input {
+    font-size: 14px;
+    height: 45px;
+  }
+  .btn-wrapper-form {
+    margin-top: 20px;
+  }
+  .insurance-list-single {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .insurance-text {
+    margin-bottom: 10px;
+  }
+  .form-wrapper__multistep--form form h3 {
+    margin-bottom: 20px;
+  }
+  .insurance-handle-person button {
+    width: 75px;
+    height: 35px;
+  }
+  .add-document-wrapper span,
+  .add-person {
+    font-size: 14px;
+  }
+  .insurance-list-wrapper {
+    margin-bottom: 10px;
+  }
+  .btn-back,
+  .btn-next {
+    padding: 10px 30px;
+    min-width: auto;
+    min-height: 45px;
+  }
+  .add-document-wrapper {
+    margin-top: 20px;
+  }
+  .attestation-wrapper span {
+    margin-bottom: 0;
+  }
+  .off-wrapper-all {
+    min-height: 250px;
+  }
+  .payroll-terms {
+    margin-top: 20px;
+  }
+  .heading-payment-wrapper img {
+    width: 35px;
+  }
+  .check-example-wrapper {
+    padding: 30px 20px;
+  }
+  .for-paymeny-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .policy-holder-wrapper,
+  .policy-id-wrapper {
+    width: 100%;
+  }
+  .paytoorder-wrapper {
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .premium-wrapper {
+    flex-basis: 100%;
+  }
+  .premium-wrapper,
+  .check-recipient-wrapper {
+    width: 100%;
+  }
+  .paytoorder-wrapper span {
+    line-height: 1;
+  }
+}
